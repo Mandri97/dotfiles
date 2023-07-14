@@ -7,6 +7,10 @@ call plug#begin('~/.config/nvim/plugins')
 
   " Conquer of Completion
   Plug 'neoclide/coc.nvim', {'do' : { -> coc#util#install()}} 
+
+  " Indent Blankline
+  Plug 'lukas-reineke/indent-blankline.nvim'
+
 call plug#end()
 
 
@@ -38,7 +42,7 @@ set autoindent
 set smartindent
 set tabstop=4
 set softtabstop=4
-"set shiftwidth=0
+set shiftwidth=0
 set noexpandtab
 
 set lazyredraw
@@ -71,6 +75,12 @@ no <right> <Nop>
 ino <left> <Nop>
 ino <right> <Nop>
 
+" Indent-blankline config
+if &diff 
+	let g:indent_blankline_enabled = v:false
+endif
+let g:indent_blankline_use_treesitter = v:true
+"set list listchars=eol:↴
 
 "----------------------
 " CoC configurations
