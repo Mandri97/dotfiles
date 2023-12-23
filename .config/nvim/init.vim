@@ -6,7 +6,7 @@ call plug#begin('~/.config/nvim/plugins')
   Plug 'sainnhe/everforest'
 
   " Conquer of Completion
-  Plug 'neoclide/coc.nvim', {'do' : { -> coc#util#install()}} 
+  Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 
   " Indent Blankline
   Plug 'lukas-reineke/indent-blankline.nvim'
@@ -40,10 +40,9 @@ set wildignore=*.o,*~,*.pyc
 " Identation
 set autoindent
 set smartindent
-set tabstop=4
 set softtabstop=4
-set shiftwidth=0
-set noexpandtab
+set shiftwidth=4
+set expandtab
 
 set lazyredraw
 
@@ -88,11 +87,11 @@ let g:indent_blankline_use_treesitter = v:true
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"inoremap <silent><expr> <TAB>
+"      \ pumvisible() ? "\<C-n>" :
+"      \ <SID>check_back_space() ? "\<TAB>" :
+"      \ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
