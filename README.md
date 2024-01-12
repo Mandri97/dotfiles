@@ -1,7 +1,8 @@
-![bspwm screenshot](scrot.png)
-Welcome to my dotfiles. This repo contains my very simple dotfiles configurations.
+This is my personal dotfiles repo. 
+The current theme was inspired by [0bCdian](https://github.com/0bCdian/Hyprland_dotfiles/tree/Cozy_Gruvbox).
 
 ## Screenshots
+
 ![sddm](Screenshots/sddm.png)
 ![home](Screenshots/home.png)
 
