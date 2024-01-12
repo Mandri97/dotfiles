@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+FOLDER_PATH="$HOME/Pictures/Wallpapers"
+IMAGE=($(ls $FOLDER_PATH | shuf -n 1))
+set_background.sh "$FOLDER_PATH/$IMAGE"

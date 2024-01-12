@@ -1,0 +1,147 @@
+{
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  "height": 40,
+  "width": 1900,
+  "margin-bottom": 5,
+  "spacing": 0,
+  "fixed-center": true,
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-right": [
+    "custom/cycle_wall",
+    "memory",
+    "cpu",
+    "battery",
+    "wireplumber",
+    "network",
+    "tray"
+  ],
+  "modules-center": ["clock", "custom/updates", "custom/weather"],
+  "custom/cycle_wall": {
+    "format": "",
+    "on-click": "~/.config/hypr/scripts/wall",
+    "tooltip": true,
+    "tooltip-format": "Change wallpaper"
+  },
+  "custom/updates": {
+    "format": " ",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/updates.sh",
+    "interval": 3600,
+    "on-click": "footclient -w 700x500 -H -T system_monitor yay -Syu &",
+    "on-click-right": "exec ~/.config/waybar/scripts/updates.sh",
+    "tooltip": true
+  },
+  "custom/weather": {
+    "format": " {}",
+    "tooltip": true,
+    "interval": 3600,
+    "on-click": "$HOME/.config/hypr/scripts/weather.py && notify-send 'Updated weather!'",
+    "exec": "$HOME/.config/hypr/scripts/weather.py",
+    "return-type": "json"
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+        "1": "",
+        "2": "󰈹",
+        "3": "",
+        "4": "",
+        "5": "󰭻",
+        "6": "󰝚",
+        "7": "󱁤",
+        "8": "󰇚",
+        "9": "9",
+        "10": "10"
+    },
+    "format-active": "{icon}",
+    "on-click": "activate"
+  },
+  "hyprland/window": {
+    "format": " {}",
+    "separate-outputs": false,
+    "max-length": 25
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 4,
+    "show-passive-items": false,
+    "max-length": 6,
+    "min-length": 6,
+    "ignore-list": ["network"]
+  },
+  "clock": {
+    "tooltip": true,
+    "tooltip-format": "  {:%A, %B %e %Y}",
+    "interval": 60,
+    "format": "  {:%H:%M}",
+    "max-length": 20
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "{icon0}{icon1}{icon2}{icon3}",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "on-click": "footclient -w 1000x700 -H -T system_monitor btop &",
+    "max-lenght": 25,
+    "min-length": 6
+  },
+  "memory": {
+    "format": "  {percentage}%",
+    "interval": 1,
+    "on-click": "footclient -w 1000x700 -H -T system_monitor btop &",
+    "max-lenght": 25,
+    "min-length": 6
+  },
+  "backlight": {
+    "format": "{icon}{percent}%",
+    "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+    "on-scroll-up": "brightnessctl set 30+",
+    "on-scroll-down": "brightnessctl set 30-",
+    "max-lenght": 25,
+    "min-length": 6
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "  {capacity}%",
+    "format-plugged":  "  {capacity}%",
+    //"format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", "", "", ""],
+    "on-click": "footclient -w 1000x700 -H -T system_monitor btop &",
+  },
+  "network": {
+    "interval": 1,
+    "interface": "wlp0s20f3",
+    "format-wifi": "  {signalStrength}%",
+    "format-disconnected": "    ",
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "tooltip-format-wifi": "{essid}",
+    "on-click": "footclient -w 700x500 -H -T system_monitor nmtui &"
+  },
+  "disk": {
+    "interval": 30,
+    "format": "󰋊 {percentage_used}%",
+    "path": "/",
+    "tooltip": true,
+    "tooltip-format": "HDD - {used} used out of {total} on {path} ({percentage_used}%)",
+    "on-click": "footclient -w 700x500 -H -T system_monitor ncdu --color dark &"
+  },
+
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "max-volume": 100.0,
+    "format-icons": ["", "", ""],
+    "format-muted": "",
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "max-lenght": 25
+  }
+}
