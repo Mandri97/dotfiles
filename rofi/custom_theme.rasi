@@ -1,0 +1,15 @@
+/**
+ * Colors inspired from gruvbox with slight change on background and background
+ **/
+
+/*****----- Global Properties -----*****/
+* {
+    font:           "Iosevka Nerd Font Normal 14px";
+    background:     #1b1a1dDD;
+    background-alt: #1b1a1dDD;
+    foreground:     #b2aca9ff;
+    button:         #a69160ff;
+    selected:       #D4BE98FF;
+    active:         #B8BB26FF;
+    urgent:         #FB4934FF;
+}
