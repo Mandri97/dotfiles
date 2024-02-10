@@ -9,6 +9,9 @@ call plug#begin('~/.config/nvim/plugins')
   " Vim-fugitive
   Plug 'tpope/vim-fugitive'
 
+  " Everforest
+  Plug 'sainnhe/everforest'
+
 call plug#end()
 
 if has('termguicolors')
@@ -17,11 +20,15 @@ endif
 
 set background=dark
 
-let g:gruvbox_material_background = 'hard'
-let g:gruvbox_material_better_performance = 1
-colorscheme gruvbox-material
+"let g:gruvbox_material_background = 'hard'
+"let g:gruvbox_material_better_performance = 1
+"colorscheme gruvbox-material
 
-hi Normal guibg=NONE ctermbg=NONE
+let g:everforest_background = 'hard'
+
+colorscheme everforest
+
+"hi Normal guibg=NONE ctermbg=NONE
 
 " Add line cursor
 set cursorline
@@ -73,12 +80,6 @@ no <right> <Nop>
 ino <left> <Nop>
 ino <right> <Nop>
 
-" Indent-blankline config
-if &diff 
-	let g:indent_blankline_enabled = v:false
-endif
-let g:indent_blankline_use_treesitter = v:true
-"set list listchars=eol:↴
 
 "----------------------
 " CoC configurations
